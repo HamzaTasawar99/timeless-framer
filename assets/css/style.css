@@ -1553,8 +1553,8 @@
    }
 
    header.menu-open {
-     backdrop-filter: none; 
-     background: white; 
+     backdrop-filter: none;
+     background: white;
      /* mask: none; */
      /* -webkit-mask: none; */
    }
@@ -1652,7 +1652,7 @@
    }
 
    .image-caption-card .overlay-text {
-     width: fit-content;
+     width: max-content;
      padding: 0 4px;
    }
 
@@ -1699,7 +1699,8 @@
    } */
 
    .blog .work-cards .cards-block {
-     max-width: 48.9%;
+     max-width: 48%;
+     aspect-ratio: 1 / 1;
    }
 
    .hands-wrapper {
@@ -1774,12 +1775,12 @@
    }
 
    .hero .hero-wrapper .right-block {
-     max-width: 100%; 
-     aspect-ratio: 0.9868 / 1;
+     max-width: 100%;
+     aspect-ratio: 0.9868 / 0.9868;
      height: auto;
      mask: linear-gradient(270deg, #000000 0%, rgb(0, 0, 0) 94.88668355855856%, rgba(0, 0, 0, 0) 100%) add;
      transform: rotate(90deg);
-     
+
    }
 
 
@@ -1821,8 +1822,7 @@
    }
 
    .feature-card {
-     height: auto;
-     aspect-ratio: 1 / 1;
+     height: fit-content;
    }
 
    .feature-section {
@@ -1912,12 +1912,26 @@
    .blog-featured-content {
      width: 100%;
      max-width: 100%;
-     height: auto;
-     aspect-ratio: 1 / 0.5;
+     height: fit-content;
+     border-radius: 0 0 16px 16px;
+   }
+
+   .blog-featured-content .author {
+     margin-top: 24px;
    }
 
    .blog .work-cards .cards-block {
      max-width: 100%;
+   }
+
+   .work-cards .cards-block .content-block {
+     margin-top: 8px;
+   }
+   .blog .work-cards .cards-block { 
+    aspect-ratio: auto;
+}
+   .blog .work-cards .cards-block .content-block p.copy-md {
+     margin: 0;
    }
 
    .blog .work-cards .cards-block .img-block img {
@@ -1939,6 +1953,10 @@
    /* faqs block*/
 
    /* footer */
+   .footer .footer-wrapper .brand-block {
+     padding: 64px 0 120px;
+   }
+
    .footer .footer-wrapper .brand-block h2 {
      max-width: 100%;
    }
@@ -1951,6 +1969,10 @@
      flex-direction: column;
    }
 
+   .footer .footer-wrapper .video-block {
+     mask: linear-gradient(rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 15%, rgb(0, 0, 0) 85%, rgba(0, 0, 0, 0) 100%);
+     top: 46%;
+   }
    .footer .footer-wrapper .last-block .right-block {
      justify-content: space-between;
      align-items: self-start;
