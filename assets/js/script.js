@@ -14,7 +14,6 @@ $(document).ready(function () {
 
 
 // Window scroll and nav hidden 
-
 document.addEventListener("DOMContentLoaded", () => {
   const presenceBlock = document.querySelector(".presence");
   const leftBlock = document.querySelector(".left-block");
@@ -22,39 +21,50 @@ document.addEventListener("DOMContentLoaded", () => {
   const header = document.querySelector("header");
 
   function handleScroll() {
-    // 👉 Only run this code if screen width is greater than 1199px
+    const presenceRect = presenceBlock.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+
+    // 🟢 Always apply translateY to .left-block
+    if (presenceRect.top < windowHeight && presenceRect.bottom > 0) {
+      const scrollProgress = Math.min(1, 1 - presenceRect.top / windowHeight);
+      const translateY = scrollProgress * 60;
+      leftBlock.style.transform = `translateY(${translateY}px)`;
+    } else {
+      leftBlock.style.transform = `translateY(60px)`;
+    }
+
+    // 🖥️ Only apply nav/header changes on desktop
     if (window.innerWidth > 1199) {
-      const presenceRect = presenceBlock.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-
-      if (presenceRect.top < windowHeight && presenceRect.bottom > 0) {
-        const scrollProgress = Math.min(1, 1 - presenceRect.top / windowHeight);
-        const translateY = scrollProgress * 60;
-        leftBlock.style.transform = `translateY(${translateY}px)`;
-
-        if (presenceRect.top > 0) {
-          navContainer.classList.add("hidden");
-          header.classList.remove("blur-effect");
-        } else {
-          navContainer.classList.remove("hidden");
-          header.classList.add("blur-effect");
-        }
+      if (presenceRect.top > 0) {
+        navContainer.classList.add("hidden");
+        header.classList.remove("blur-effect");
       } else {
-        leftBlock.style.transform = `translateY(60px)`;
         navContainer.classList.remove("hidden");
         header.classList.add("blur-effect");
       }
     } else {
-      // 👉 If screen is 1199px or less, reset everything (optional, safe reset)
-      leftBlock.style.transform = `translateY(0px)`;
+      // Reset header/nav on smaller screens
       navContainer.classList.remove("hidden");
       header.classList.remove("blur-effect");
     }
   }
 
-  window.addEventListener("scroll", handleScroll);
+  // Throttle scroll handling
+  function throttle(fn, limit) {
+    let lastCall = 0;
+    return function () {
+      const now = Date.now();
+      if (now - lastCall >= limit) {
+        lastCall = now;
+        fn();
+      }
+    };
+  }
+
+  window.addEventListener("scroll", throttle(handleScroll, 100));
   handleScroll(); // Initial trigger
 });
+
 
 // Window scroll and nav hidden 
 

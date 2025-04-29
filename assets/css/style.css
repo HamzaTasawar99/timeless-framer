@@ -672,7 +672,7 @@
    display: flex;
    align-items: center;
    gap: 5rem;
-   height: 198px;
+   height: fit-content;
  }
 
  .text-card h3 {
@@ -1857,8 +1857,7 @@
    .text-card {
      align-items: flex-start;
      height: auto;
-     flex-direction: column;
-     aspect-ratio: 1 / 1;
+     flex-direction: column; 
      gap: 40px;
    }
 
