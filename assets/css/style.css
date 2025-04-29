@@ -1543,8 +1543,8 @@
      transition: all 0.4s ease;
 
      /* Mask for gradient effect normally */
-     mask: linear-gradient(rgb(0, 0, 0) 0%, rgb(0, 0, 0) 65%, rgba(0, 0, 0, 0) 100%);
-     -webkit-mask: linear-gradient(rgb(0, 0, 0) 0%, rgb(0, 0, 0) 65%, rgba(0, 0, 0, 0) 100%);
+     /* mask: linear-gradient(rgb(0, 0, 0) 0%, rgb(0, 0, 0) 65%, rgba(0, 0, 0, 0) 100%); */
+     /* -webkit-mask: linear-gradient(rgb(0, 0, 0) 0%, rgb(0, 0, 0) 65%, rgba(0, 0, 0, 0) 100%); */
      padding: 16px 24px
    }
 
@@ -1553,13 +1553,10 @@
    }
 
    header.menu-open {
-     backdrop-filter: none;
-     /* remove blur */
-     background: white;
-     /* solid background */
-
-     mask: none;
-     -webkit-mask: none;
+     backdrop-filter: none; 
+     background: white; 
+     /* mask: none; */
+     /* -webkit-mask: none; */
    }
 
    ul.icon-ul {
@@ -1616,8 +1613,8 @@
      padding: 120px 0;
    }
 
-   .hero .hero-wrapper .left-block { 
-     max-width: 54.9%; 
+   .hero .hero-wrapper .left-block {
+     max-width: 54.9%;
    }
 
    /* hero */
@@ -1744,9 +1741,10 @@
  }
 
  @media screen and (max-width: 810px) {
-  .container {
-    padding: 0 24px;
-}
+   .container {
+     padding: 0 24px;
+   }
+
    h2 {
      font-size: 48px;
      font-weight: 500;
@@ -1767,13 +1765,23 @@
    }
 
    /* .hero */
+   .hero .hero-wrapper {
+     display: block;
+   }
+
    .hero .hero-wrapper .left-block {
      max-width: 100%;
    }
 
    .hero .hero-wrapper .right-block {
-     max-width: 100%;
+     max-width: 100%; 
+     aspect-ratio: 0.9868 / 1;
+     height: auto;
+     mask: linear-gradient(270deg, #000000 0%, rgb(0, 0, 0) 94.88668355855856%, rgba(0, 0, 0, 0) 100%) add;
+     transform: rotate(90deg);
+     
    }
+
 
    /* .hero */
 
@@ -1808,7 +1816,7 @@
      flex-direction: column;
    }
 
-   .blog-content  h4 {
+   .blog-content h4 {
      margin-bottom: 32px;
    }
 
