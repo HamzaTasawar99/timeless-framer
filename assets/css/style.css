@@ -393,7 +393,7 @@
  .hero .hero-wrapper .left-block p:first-child {
    background-color: #a1806e;
    border-radius: 50px;
-   padding: 8px 12px;
+.hero .hero-wrapper .left-block p:first-child
    color: #fff;
    width: fit-content;
  }
