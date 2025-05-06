@@ -370,7 +370,7 @@
 
  /* hero block */
  .hero {
-   padding: 160px 64px;
+   padding: 155px 64px;
    background-color: #c5b3a4;
    position: sticky;
    top: 0;
@@ -393,7 +393,7 @@
  .hero .hero-wrapper .left-block p:first-child {
    background-color: #a1806e;
    border-radius: 50px;
-.hero .hero-wrapper .left-block p:first-child
+   padding: 4px 12px;
    color: #fff;
    width: fit-content;
  }
